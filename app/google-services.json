@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "712013329396",
+    "project_id": "aplicacion-banca-18a4f",
+    "storage_bucket": "aplicacion-banca-18a4f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712013329396:android:05a88f2a387a43b35bffa1",
+        "android_client_info": {
+          "package_name": "com.davimana.tivora"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqWjPZUeF85Ilrf_QtOgXLzMToyrPyiY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712013329396:android:7b242d049d7ec6c35bffa1",
+        "android_client_info": {
+          "package_name": "com.marketplace"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqWjPZUeF85Ilrf_QtOgXLzMToyrPyiY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
