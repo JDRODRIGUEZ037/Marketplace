@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.myapplication.ui.main.HomeFragment"
+        android:label="Catálogo"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_aiChatFragment"
+            app:destination="@id/aiChatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.myapplication.ui.main.ProductDetailFragment"
+        android:label="Detalle"
+        tools:layout="@layout/fragment_product_detail">
+        <argument
+            android:name="productId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.myapplication.ui.main.CartFragment"
+        android:label="Carrito"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/aiChatFragment"
+        android:name="com.example.myapplication.ui.chat.AiChatFragment"
+        android:label="Asistente IA"
+        tools:layout="@layout/fragment_ai_chat">
+        <action
+            android:id="@+id/action_aiChatFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.myapplication.ui.chat.ChatFragment"
+        android:label="Chat Vendedor"
+        tools:layout="@layout/fragment_chat">
+        <argument
+            android:name="receiverId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.myapplication.ui.main.ProfileFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_admin"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.myapplication.ui.admin.DashboardFragment"
+        android:label="Panel Admin"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/manageProductsFragment"
+        android:name="com.example.myapplication.ui.admin.ManageProductsFragment"
+        android:label="Gestionar Productos"
+        tools:layout="@layout/fragment_manage_products">
+        <action
+            android:id="@+id/action_manageProductsFragment_to_addEditProductFragment"
+            app:destination="@id/addEditProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditProductFragment"
+        android:name="com.example.myapplication.ui.admin.AddEditProductFragment"
+        android:label="Producto"
+        tools:layout="@layout/fragment_add_edit_product">
+        <argument
+            android:name="productId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatListFragment"
+        android:name="com.example.myapplication.ui.chat.ChatListFragment"
+        android:label="Chats"
+        tools:layout="@layout/fragment_chat_list">
+        <action
+            android:id="@+id/action_chatListFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.myapplication.ui.chat.ChatFragment"
+        android:label="Chat"
+        tools:layout="@layout/fragment_chat">
+        <argument
+            android:name="receiverId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.myapplication.ui.main.ProfileFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
