@@ -1,0 +1,42 @@
+# Azure DevOps Pipeline for Android Application (Marketplace)
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '17'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'PreInstalled'
+  displayName: 'Set up JDK 17'
+
+- task: Gradle@3
+  inputs:
+    workingDirectory: ''
+    gradleWrapperFile: 'gradlew'
+    options: '--stacktrace'
+    tasks: 'assembleDebug'
+    publishJUnitResults: false
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.17'
+    jdkArchitectureOption: 'x64'
+  displayName: 'Build Android Debug APK'
+
+- task: CopyFiles@2
+  inputs:
+    contents: 'app/build/outputs/apk/debug/*.apk'
+    targetFolder: '$(build.artifactStagingDirectory)'
+    flattenFolders: true
+  displayName: 'Copy APK to Artifact Staging'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(build.artifactStagingDirectory)'
+    ArtifactName: 'drop-apk'
+    publishLocation: 'Container'
+  displayName: 'Publish Build Artifacts (APK)'
